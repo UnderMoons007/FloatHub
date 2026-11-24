@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/FloatHub/FloatHub.csproj"/>
+    <Project Path="src/FloatHub.Core/FloatHub.Core.csproj"/>
+    <Project Path="src/FloatHub.StockTracker/FloatHub.StockTracker.csproj"/>
+  </Folder>
+  <Folder Name="/tests/"><Project Path="tests/Checks/Checks.csproj"/></Folder>
+</Solution>

@@ -1,0 +1,6 @@
+**/bin/
+**/obj/
+.test-work/
+artifacts/
+.vs/
+*.user

@@ -1,0 +1,5 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><UseWPF>true</UseWPF></PropertyGroup>
+  <ItemGroup><EmbeddedResource Include="BseNames.txt" LogicalName="BseNames"/></ItemGroup>
+  <ItemGroup><ProjectReference Include="../FloatHub.Core/FloatHub.Core.csproj"/></ItemGroup>
+</Project>

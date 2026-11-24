@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <!-- WPF creates the first HWND; the manifest declares per-monitor DPI before startup. -->
+    <NoWarn>$(NoWarn);WFO0003</NoWarn>
+    <AssemblyTitle>FloatHub</AssemblyTitle>
+    <Product>FloatHub</Product>
+    <ApplicationIcon>FloatHub.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup><ProjectReference Include="../FloatHub.Core/FloatHub.Core.csproj"/></ItemGroup>
+  <ItemGroup><ProjectReference Include="../FloatHub.StockTracker/FloatHub.StockTracker.csproj"/></ItemGroup>
+  <ItemGroup><EmbeddedResource Include="../../licenses/*.txt" Link="Licenses/%(Filename)%(Extension)"/></ItemGroup>
+</Project>

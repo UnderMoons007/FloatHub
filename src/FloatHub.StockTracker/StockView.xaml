@@ -1,0 +1,24 @@
+<UserControl x:Class="FloatHub.StockTracker.StockView" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+ <UserControl.Resources>
+  <DataTemplate x:Key="CapsuleTemplate">
+   <Border CornerRadius="15" Background="#244346" Padding="10,5,9,5" Margin="0,2" HorizontalAlignment="Left" ToolTip="{Binding Detail}" ToolTipService.ShowDuration="20000"
+    AutomationProperties.Name="{Binding Detail}">
+    <WrapPanel VerticalAlignment="Center">
+     <TextBlock Text="{Binding Label}" MaxWidth="145" TextTrimming="CharacterEllipsis" FontWeight="SemiBold" Foreground="#F5FAF6" FontSize="14" VerticalAlignment="Center"/>
+     <ItemsControl ItemsSource="{Binding Cells}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><StackPanel Orientation="Horizontal"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+      <ItemsControl.ItemTemplate><DataTemplate><Border BorderThickness="1,0,0,0" BorderBrush="#46615F" Padding="7,0,0,0" Margin="7,1,0,1">
+       <TextBlock Text="{Binding Value}" Foreground="{Binding Color}" FontFamily="Consolas, Microsoft YaHei UI" FontSize="14" AutomationProperties.Name="{Binding Field.Name}"/>
+      </Border></DataTemplate></ItemsControl.ItemTemplate>
+     </ItemsControl>
+     <TextBlock Text="{Binding State}" Margin="8,0,0,0" Foreground="#C0D8CB" FontSize="10" VerticalAlignment="Center"/>
+    </WrapPanel>
+   </Border>
+  </DataTemplate>
+ </UserControl.Resources>
+ <StackPanel>
+  <ItemsControl ItemsSource="{Binding Rows}" ItemTemplate="{DynamicResource CapsuleTemplate}"/>
+  <Button x:Name="AddFirst" Content="添加自选股票" Margin="0,5" Click="Manage"><Button.Style><Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+   <Setter Property="Visibility" Value="Collapsed"/><Style.Triggers><DataTrigger Binding="{Binding Empty}" Value="True"><Setter Property="Visibility" Value="Visible"/></DataTrigger></Style.Triggers>
+  </Style></Button.Style></Button>
+ </StackPanel>
+</UserControl>
